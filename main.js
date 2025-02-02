@@ -1,5 +1,7 @@
 // Simple Rock, Paper , Scissors implementation
 const choices = ["rock", "paper", "scissors"];
+let humanScore = 0;
+let computerScore = 0;
 
 function getComputerChoice() {
   const choice = Math.floor(Math.random() * 3) + 1;
@@ -27,5 +29,37 @@ const getHumanChoice = function () {
   return choice;
 };
 
-console.log(getComputerChoice());
-console.log(getHumanChoice());
+function playRound() {
+  const botChoice = getComputerChoice();
+  const humanChoice = getHumanChoice();
+
+  if (
+    (humanChoice === "rock" && botChoice === "scissors") ||
+    (humanChoice === "paper" && botChoice === "rock") ||
+    (humanChoice === "scissors" && botChoice === "paper")
+  ) {
+    console.log(`You win! ${humanChoice} beats ${botChoice}`);
+    humanScore++;
+  } else if (
+    (humanChoice === "scissors" && botChoice === "rock") ||
+    (humanChoice === "rock" && botChoice === "paper") ||
+    (humanChoice === "paper" && botChoice === "scissors")
+  ) {
+    console.log(`You lose! ${humanChoice} lost to ${botChoice}`);
+    computerScore++;
+  } else console.log(`It is a tie! ${humanChoice} versus ${botChoice}`);
+}
+
+function playGame() {
+  console.log("WELCOME TO THE TOURNAMENT");
+  for (let index = 1; index <= 5; index++) {
+    console.log("Starting Round: ", index);
+    playRound();
+  }
+  if (humanScore > computerScore) {
+    console.log("🏆YOU WON THE TOURNAMENT!!!🏆");
+  } else if (humanScore < computerScore) {
+    console.log("🖥️Sorry, computer win this time🖥️");
+  } else console.log("It was a draw! Maybe, play again ...");
+}
+playGame();
