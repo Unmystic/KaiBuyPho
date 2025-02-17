@@ -1,0 +1,29 @@
+body {
+  display: flex;
+  justify-content: center;
+}
+
+.gameWindow {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 25px;
+  gap: 20px;
+  justify-content: center;
+}
+
+.btn-pic {
+  background-color: "green";
+  width: 200px;
+  height: 320px;
+  justify-content: space-between;
+}
+.gameButtons {
+  display: flex;
+  gap: 20px;
+}
+img {
+  height: 250px;
+  width: 180px;
+  margin: 20px;
+}
