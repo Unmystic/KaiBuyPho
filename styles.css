@@ -27,3 +27,25 @@ img {
   width: 180px;
   margin: 20px;
 }
+
+.hide {
+  display: none;
+}
+.scoreBar {
+  display: flex;
+  justify-content: space-between;
+  gap: 100px;
+  align-self: stretch;
+}
+.humanScore,
+.botScore {
+  display: flex;
+  font-size: 22px;
+  font-weight: bold;
+  gap: 10px;
+}
+
+.hScore {
+  display: flex;
+  align-items: center;
+}

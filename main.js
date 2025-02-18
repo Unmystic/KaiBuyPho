@@ -4,8 +4,13 @@ let humanScore = 0;
 let computerScore = 0;
 const gameWindow = document.querySelector(".gameWindow");
 const gameButtons = document.querySelector(".gameButtons");
+const gameText = document.querySelector(".instruct");
 
 gameButtons.addEventListener("click", function (e) {
+  const h2El = document.querySelector("h2");
+  if (h2El) {
+    gameWindow.removeChild(h2El);
+  }
   const target = e.target;
   const pFiels = target.closest("button");
   const pValue = pFiels.querySelector("p").textContent;
@@ -13,6 +18,7 @@ gameButtons.addEventListener("click", function (e) {
   const choiceDiv = document.createElement("h2");
   gameWindow.appendChild(choiceDiv);
   choiceDiv.textContent = strChoice;
+  playGame();
 });
 
 function getComputerChoice() {
@@ -32,6 +38,20 @@ function getComputerChoice() {
 function playRound() {
   const botChoice = getComputerChoice();
   const humanChoice = "scissors";
+  const existingChoice = document.querySelector(".botChoice");
+  if (existingChoice) {
+    gameWindow.removeChild(existingChoice);
+  }
+  const displayBC = document.createElement("span");
+    displayBC.classList.add('botChoice')
+  gameWindow.appendChild(displayBC);
+
+  const h2El = document.querySelector("h2");
+  if (h2El) {
+    displayBC.textContent = `Bot choice is : ${botChoice}`;
+    displayBC.style.fontSize = "24px";
+    displayBC.style.fontWeight = "900";
+  }
 
   if (
     (humanChoice === "rock" && botChoice === "scissors") ||
@@ -51,7 +71,8 @@ function playRound() {
 }
 
 function playGame() {
-  console.log("WELCOME TO THE TOURNAMENT");
+
+  gameText.textContent = "WELCOME TO THE TOURNAMENT";
   playRound();
   if (humanScore > computerScore) {
     console.log("🏆YOU WON THE TOURNAMENT!!!🏆");
@@ -59,4 +80,3 @@ function playGame() {
     console.log("🖥️Sorry, computer win this time🖥️");
   } else console.log("It was a draw! Maybe, play again ...");
 }
-playGame();
