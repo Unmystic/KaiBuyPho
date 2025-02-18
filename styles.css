@@ -29,7 +29,7 @@ img {
 }
 
 .hide {
-  display: none;
+  visibility: hidden;
 }
 .scoreBar {
   display: flex;
@@ -43,9 +43,16 @@ img {
   font-size: 22px;
   font-weight: bold;
   gap: 10px;
+  margin: 0;
+  padding: 0;
 }
 
 .hScore {
   display: flex;
   align-items: center;
+  margin: 0;
+  padding: 0;
+}
+.scoreText {
+  margin: 0;
 }
