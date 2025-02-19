@@ -47,7 +47,8 @@ img {
   padding: 0;
 }
 
-.hScore {
+.hScore,
+.bScore {
   display: flex;
   align-items: center;
   margin: 0;
