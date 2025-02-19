@@ -8,6 +8,7 @@ const gameText = document.querySelector(".instruct");
 const scoreBar = document.querySelector(".scoreBar");
 const hScore = document.querySelector(".hScore");
 const bScore = document.querySelector(".bScore");
+const btnReset = document.querySelector(".reset");
 
 gameButtons.addEventListener("click", function(e) {
     const h2El = document.querySelector(".humanChoice");
@@ -89,7 +90,9 @@ function updateUI() {
 
     if (humanScore > 4) {
         gameText.textContent = "🏆YOU WON THE TOURNAMENT!!!🏆";
+        hideUi();
     } else if (computerScore > 4) {
+        hideUi();
         gameText.textContent = "🖥️Sorry, computer win this time🖥️";
     }
     hScore.textContent = humanScore;
@@ -100,4 +103,20 @@ function updateUI() {
         console.log("🖥️Sorry, computer win this time🖥️");
     } else console.log("It was a draw! Maybe, play again ...");
     // scoreBar.classList.add("hide");
+}
+btnReset.addEventListener("click", resetUi);
+function hideUi() {
+    btnReset.classList.remove("hide");
+    gameButtons.classList.add("hide");
+    scoreBar.classList.add("hide");
+    gameWindow.removeChild(document.querySelector(".humanChoice"));
+    gameWindow.removeChild(document.querySelector(".botChoice"));
+}
+
+function resetUi() {
+    gameText.textContent = "Please press the button";
+    gameButtons.classList.remove("hide")
+    humanScore = 0;
+    computerScore = 0;
+    btnReset.classList.add("hide")
 }

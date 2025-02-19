@@ -57,3 +57,10 @@ img {
 .scoreText {
   margin: 0;
 }
+.reset{
+    padding:12px;
+  font-size: 22px;
+  font-weight: bold;
+    margin: 0;
+
+}
